@@ -2,6 +2,7 @@ FROM gradle:4.9.0-jdk8-alpine as builder
 
 WORKDIR /app
 COPY . /app
+ADD http://downloads.corda.net/network-bootstrapper-corda-3.0.jar
 
 USER root                
 RUN chown -R gradle /app
