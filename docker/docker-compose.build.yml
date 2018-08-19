@@ -10,7 +10,7 @@ services:
     env_file:
       - corda-docker.env
     volumes:
-      - ./build:/app/build
+      - ./cordapp:/app/cordapp
     image: ${REPO_NAME:-apemon}/corda-builder:${DOCKER_TAG:-latest}
   corda:
     build:
