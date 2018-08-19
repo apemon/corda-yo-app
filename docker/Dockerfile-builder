@@ -1,0 +1,11 @@
+FROM gradle:4.9.0-jdk8-alpine as builder
+
+WORKDIR /app
+COPY . /app
+
+USER root                
+RUN chown -R gradle /app
+USER gradle
+RUN chmod +x gradlew
+
+RUN ./gradlew build

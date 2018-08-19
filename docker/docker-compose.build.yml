@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+  corda-builder:
+    build: 
+      context: ../
+      dockerfile: docker/Dockerfile-builder
+      labels:
+        build.commit: ${BUILD_COMMIT}
+        build.date: ${BUILD_DATE}
+    image: ${REPO_NAME:-apemon}/corda-builder:${DOCKER_TAG:-latest}
+  corda:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile-corda
+      labels:
+        build.commit: ${BUILD_COMMIT}
+        build.date: ${BUILD_DATE}
+    image: ${REPO_NAME:-apemon}/corda:${DOCKER_TAG:-latest}
