@@ -10,4 +10,5 @@ USER gradle
 RUN chmod +x gradlew
 
 RUN ./gradlew build --stacktrace
-RUN mkdir jar && mkdir nodes && cp /app/build/libs/* /app/jar/ && java -jar docker/config
+RUN mkdir cordapp && mkdir nodes && cp /app/build/libs/* /app/cordapp/
+VOLUME ["/app/build", "/app/cordapp", "/app/nodes"]
