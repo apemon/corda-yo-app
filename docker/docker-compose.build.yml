@@ -7,6 +7,8 @@ services:
       labels:
         build.commit: ${BUILD_COMMIT}
         build.date: ${BUILD_DATE}
+    env_file:
+      - docker/corda-docker.env
     image: ${REPO_NAME:-apemon}/corda-builder:${DOCKER_TAG:-latest}
   corda:
     build:
@@ -15,4 +17,6 @@ services:
       labels:
         build.commit: ${BUILD_COMMIT}
         build.date: ${BUILD_DATE}
+    env_file:
+      - docker/corda-docker.env
     image: ${REPO_NAME:-apemon}/corda:${DOCKER_TAG:-latest}
